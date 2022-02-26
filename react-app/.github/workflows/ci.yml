@@ -1,9 +1,9 @@
 name: CI
 on:
   pull_request:
-    branches: [dev, master]
+    branches: [devloper, master]
   push:
-    branches: [dev, master]
+    branches: [devloper, master]
 
 jobs:
   build:
@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
           
       - name: Deploy to Staging
-        if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/developer'
         run: npx surge --project ./build --domain silent-apparatus.surge.sh
     
       - name: Deploy to Production
